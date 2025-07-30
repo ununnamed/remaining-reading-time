@@ -19,7 +19,7 @@ export default class ReadingTime extends Plugin {
     this.addSettingTab(new ReadingTimeSettingsTab(this.app, this));
 
     this.addCommand({
-      id: "reading-time-editor-command",
+      id: "reading-time-editor",
       name: "Selected Text",
       editorCallback: (editor: Editor, view: MarkdownView) => {
         new ReadingTimeModal(this.app, editor, this).open();

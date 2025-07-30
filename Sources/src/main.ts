@@ -20,7 +20,7 @@ export default class ReadingTime extends Plugin {
 
     // This adds an editor command that can perform some operation on the current editor instance
     this.addCommand({
-      id: "reading-time-editor-command",
+      id: "reading-time-editor",
       name: "Selected Text",
       editorCallback: (editor: Editor, view: MarkdownView) => {
         new ReadingTimeModal(this.app, editor, this).open();

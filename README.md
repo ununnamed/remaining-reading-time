@@ -5,12 +5,20 @@ Simple plugin to add an estimated reading time for the selected note to the Stat
 ![Screenshot](https://raw.githubusercontent.com/avr/obsidian-reading-time/main/images/example.png)
 ![Screenshot](https://raw.githubusercontent.com/avr/obsidian-reading-time/main/images/settings.png)
 
+<<<<<<< HEAD
 ## How to install the plugin
 
 - Download the [Latest release](https://github.com/avr/obsidian-reading-time/releases/latest)
 - Extract the `obsidian-reading-time` folder from the zip to your vault `<vault>/.obsidian/plugins/`
 
 ## Contributing
+=======
+This plugin is based on great [reading-time plugin](https://github.com/avr/obsidian-reading-time), which focuses primarily on writing and helping users manage note length. While the underlying structure is similar, this version is designed for a different use case — reading.
+It estimates the time remaining to finish reading a text (such as articles, notes, or books), providing a smoother reading experience and helping users pace their reading sessions.
+
+In short:
+Reading Time Plugin: Optimized for writing and keeping notes concise.
+>>>>>>> parent of 3981c6d (Update README.md)
 
 ### Development
 

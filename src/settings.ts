@@ -63,7 +63,7 @@ export class ReadingTimeSettingsTab extends PluginSettingTab {
             ReadingTimeFormat.Verbose,
             "Verbose (10 minutes 4 seconds)"
           )
-          .addOption(ReadingTimeFormat.Digital, "Colon Notation (10:04)")
+          .addOption(ReadingTimeFormat.Digital, "Colon notation (10:04)")
           .setValue(this.plugin.settings.format)
           .onChange(async (value) => {
             this.plugin.settings.format = value as ReadingTimeFormat;
@@ -74,7 +74,7 @@ export class ReadingTimeSettingsTab extends PluginSettingTab {
       );
 
     new Setting(this.containerEl)
-      .setName("Append Text")
+      .setName("Append text")
       .setDesc("Append 'left' to formatted string.")
       .addText((text) =>
         text

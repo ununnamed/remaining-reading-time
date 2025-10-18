@@ -20,7 +20,7 @@ export default class ReadingTime extends Plugin {
 
     this.addCommand({
       id: "reading-time-editor",
-      name: "Selected Text",
+      name: "Selected text",
       editorCallback: (editor: Editor, view: MarkdownView) => {
         new ReadingTimeModal(this.app, editor, this).open();
       },
@@ -42,7 +42,7 @@ export default class ReadingTime extends Plugin {
       )
     );
 
-    // Добавляем периодическую проверку позиции курсора
+    // Add a periodic check of the cursor position
     let lastCursorPosition: { line: number; ch: number } | null = null;
     setInterval(() => {
       const mdView = this.app.workspace.getActiveViewOfType(MarkdownView);
@@ -121,7 +121,7 @@ class ReadingTimeModal extends Modal {
 
   onOpen() {
     const { contentEl, titleEl } = this;
-    titleEl.setText("Reading Time of Selected Text");
+    titleEl.setText("Reading time of selected text");
     const stats = readingTimeText(this.editor.getSelection(), this.plugin);
     contentEl.setText(`${stats} (at ${this.plugin.settings.readingSpeed} wpm)`);
   }

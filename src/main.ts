@@ -44,16 +44,21 @@ export default class ReadingTime extends Plugin {
 
     // Add a periodic check of the cursor position
     let lastCursorPosition: { line: number; ch: number } | null = null;
-    setInterval(() => {
-      const mdView = this.app.workspace.getActiveViewOfType(MarkdownView);
-      if (mdView?.editor) {
-        const cursor = mdView.editor.getCursor();
-        if (!lastCursorPosition || cursor.line !== lastCursorPosition.line || cursor.ch !== lastCursorPosition.ch) {
-          lastCursorPosition = cursor;
-          this.calculateReadingTime();
-        }
+this.registerInterval(
+  window.setInterval(() => {
+    const mdView = this.app.workspace.getActiveViewOfType(MarkdownView);
+    if (mdView?.editor) {
+      const cursor = mdView.editor.getCursor();
+      if (
+        !lastCursorPosition ||
+        cursor.line !== lastCursorPosition.line ||
+        cursor.ch !== lastCursorPosition.ch
+      ) {
+        lastCursorPosition = cursor;
+        this.calculateReadingTime();
       }
-    }, 500);
+    }
+  }, 500));
   }
 
   calculateReadingTime = () => {

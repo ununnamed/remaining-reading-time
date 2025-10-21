@@ -10,10 +10,10 @@ Look where snippets are located at.
    ![1970-01-01 01-00-00_1761051226](https://github.com/user-attachments/assets/6143b772-448d-48c9-a44d-7f4b8101f3fe)
 ![1970-01-01 01-00-00_1761051229](https://github.com/user-attachments/assets/1296b519-5565-4262-91a3-9602e8007fbe)
 
-4. You don't have snippets.css, create it
+3. You don't have snippets.css, create it
 ![1970-01-01 01-00-00_1761051206](https://github.com/user-attachments/assets/c520a5f2-bcc3-41b0-9db4-c43b8af4cf08)
 
-5. Paste this code inside snippets.css and save
+4. Paste this code inside snippets.css and save
 ```progressbar
 /* Make status bar visible on mobile version of Obsidian */
 .is-mobile .app-container .status-bar {
@@ -33,4 +33,4 @@ Look where snippets are located at.
 ```
 ![1970-01-01 01-00-00_1761051210](https://github.com/user-attachments/assets/8944fd25-566e-466c-b6fb-7521af578695)
 
-6. Relaunch Obsidian and you'll see the timer in editing mode. 
+5. Relaunch Obsidian and you'll see the timer in editing mode. 

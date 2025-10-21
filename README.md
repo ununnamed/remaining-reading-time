@@ -1,7 +1,7 @@
 # remaining-reading-time
 Shows the remaining reading time and reading progress (%) in the Status Bar in real time.
 
-![image](https://github.com/user-attachments/assets/72e9a669-f9ed-4fa9-b09c-883ea8826f41)
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/b62141c2-628a-4c50-95ed-6abdffed0ef2" />
 
 Based on the great Reading Time plugin https://github.com/avr/obsidian-reading-time
 # Differences from the Reading Time Plugin
@@ -16,6 +16,4 @@ In short:
 This plugin: Optimized for reading and tracking reading progress/time left.
 
 # How to turn on Remaining reading time on Obsidian mobile
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/b62141c2-628a-4c50-95ed-6abdffed0ef2" />
-
 [Animated instruction](https://github.com/ununnamed/remaining-reading-time/blob/main/MOBILE_VERSION.md)

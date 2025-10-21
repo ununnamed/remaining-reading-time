@@ -16,4 +16,6 @@ In short:
 This plugin: Optimized for reading and tracking reading progress/time left.
 
 # How to turn on Remaining reading time on Obsidian mobile
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/b62141c2-628a-4c50-95ed-6abdffed0ef2" />
+
 [Animated instruction](https://github.com/ununnamed/remaining-reading-time/blob/main/MOBILE_VERSION.md)

@@ -1,6 +1,6 @@
 # How to make remaining reading time appear on mobile version:
 
-<img width="180" height="400" alt="image" src="https://github.com/user-attachments/assets/bcd56e37-2bf8-42b7-b742-726ed34f19c5" />
+<img width="180" height="400" alt="image" src="https://github.com/user-attachments/assets/50244290-9234-4a39-95ac-d61f96a3dbfd" />
 
 # 1. Open Settings => Appearance => CSS snippets. Turn them ON.
 <img width="3240" height="2369" alt="image" src="https://github.com/user-attachments/assets/676c75b0-fc3a-405b-85d3-028ada2d3750" />

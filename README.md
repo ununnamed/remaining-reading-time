@@ -1,5 +1,5 @@
 # remaining-reading-time
-Shows the remaining reading time and reading progress % in Status Bar
+Shows the remaining reading time and reading progress (%) in the Status Bar in real time.
 
 ![image](https://github.com/user-attachments/assets/72e9a669-f9ed-4fa9-b09c-883ea8826f41)
 
@@ -11,6 +11,6 @@ It estimates the time remaining to finish reading a text (such as articles, note
 
 In short:
 
-Reading Time Plugin: Optimized for writing and keeping notes concise.
+[Reading Time Plugin](https://github.com/avr/obsidian-reading-time): Optimized for writing and keeping notes concise.
 
 This plugin: Optimized for reading and tracking reading progress/time left.

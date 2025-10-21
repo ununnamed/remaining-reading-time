@@ -42,7 +42,7 @@ export default class ReadingTime extends Plugin {
       )
     );
 
-    // Проверка каждую секунду — обновляем время при изменении прокрутки
+    // Update every second - update remaining reading time on scrolling
     let lastScrollTop: number | null = null;
     this.registerInterval(
       window.setInterval(() => {
@@ -99,7 +99,7 @@ export default class ReadingTime extends Plugin {
 
     const result = readingTimeText(textBelowScroll, this);
 
-    // Только время + проценты
+    // Just time and percents
     let statusText = `${result}`;
     if (this.settings.showProgressPercentage) {
       statusText += ` (${scrollProgress}%)`;

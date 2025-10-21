@@ -19,11 +19,11 @@ Look where snippets are located at.
 /* Make status bar visible on mobile version of Obsidian */
 .is-mobile .app-container .status-bar {
     display: flex;
-    position: relative;
-    justify-content: center;
-    padding: 0;
     background-color: transparent;
+    padding-bottom: 35px;
+    position: fixed;
     color: #b28ecc;
+    border: 0px solid #333;
     pointer-events: none;
 }
 

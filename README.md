@@ -14,3 +14,6 @@ In short:
 [Reading Time Plugin](https://github.com/avr/obsidian-reading-time): Optimized for writing and keeping notes concise.
 
 This plugin: Optimized for reading and tracking reading progress/time left.
+
+# How to turn on Remaining reading time on Obsidian mobile
+[Animated instruction](https://github.com/ununnamed/remaining-reading-time/blob/main/MOBILE_VERSION.md)

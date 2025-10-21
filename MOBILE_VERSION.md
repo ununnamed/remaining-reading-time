@@ -1,4 +1,5 @@
 How to make remaining reading time appear on mobile version:
+
 <img width="180" height="400" alt="image" src="https://github.com/user-attachments/assets/bcd56e37-2bf8-42b7-b742-726ed34f19c5" />
 
 1. Open Settings => Appearance => CSS snippets. Turn them ON.

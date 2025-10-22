@@ -56,8 +56,8 @@ export class ReadingTimeSettingsTab extends PluginSettingTab {
       .setDesc("Choose the output format")
       .addDropdown((dropdown) =>
         dropdown
-          .addOption(ReadingTimeFormat.Default, "Default (10 min)")
-          .addOption(ReadingTimeFormat.Compact, "Compact (10m)")
+          .addOption(ReadingTimeFormat.Default, "Default (10m)")
+          .addOption(ReadingTimeFormat.Compact, "Compact (10 min)")
           .addOption(ReadingTimeFormat.Simple, "Simple (10m 4s)")
           .addOption(
             ReadingTimeFormat.Verbose,

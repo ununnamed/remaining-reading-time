@@ -94,7 +94,7 @@ export default class ReadingTime extends Plugin {
 
     const totalText = editor.getValue();
     const charsTotal = totalText.length;
-    const charsRead = Math.round((charsTotal * scrollProgress) / 100);
+    const charsRead = Math.round((charsTotal * (scrollTop / (scrollHeight - clientHeight))));
     const textBelowScroll = totalText.slice(charsRead);
 
     const result = readingTimeText(textBelowScroll, this);
@@ -133,7 +133,7 @@ class ReadingTimeModal extends Modal {
 
   onOpen() {
     const { contentEl, titleEl } = this;
-    titleEl.setText("Reading time of selected text");
+    titleEl.setText("Remaining reading time");
     const stats = readingTimeText(this.editor.getSelection(), this.plugin);
     contentEl.setText(`${stats} (at ${this.plugin.settings.readingSpeed} wpm)`);
   }

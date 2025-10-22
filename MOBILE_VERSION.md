@@ -25,13 +25,15 @@ Look where snippets are located at.
 .is-mobile .app-container .status-bar {
     display: flex;
     background-color: transparent;
-    bottom: -9px;  /* lift slightly below screen edge */
-    left: 25px;  /* small margin from left */
+    bottom: -8px;  /* lift slightly below screen edge */
+    left: 28px;  /* small margin from left */
     justify-content: flex-start;  /* align items to the left */
     position: fixed;
     color: #b28ecc;
     border: 0px solid #333;  /* no border */
-    pointer-events: none; 
+    pointer-events: none;
+    font-size: 10px;
+
 }
 
 /* Make only Remaining Reading Time plugin visible on the status bar. Remove this and everything below to make all plugins visible */

@@ -42,7 +42,7 @@ export default class ReadingTime extends Plugin {
       )
     );
 
-    // Update every second - update remaining reading time on scrolling
+    // Update every half a second - update remaining reading time on scrolling
     let lastScrollTop: number | null = null;
     this.registerInterval(
       window.setInterval(() => {
@@ -61,7 +61,7 @@ export default class ReadingTime extends Plugin {
             this.calculateReadingTime();
           }
         }
-      }, 1000)
+      }, 500)
     );
   }
 
@@ -87,10 +87,8 @@ export default class ReadingTime extends Plugin {
     const scrollHeight = editorEl.scrollHeight;
     const clientHeight = editorEl.clientHeight;
 
-    const scrollProgress = Math.min(
-      100,
-      Math.round((scrollTop / (scrollHeight - clientHeight)) * 100)
-    );
+    const scrollProgressRaw = (scrollTop / (scrollHeight - clientHeight)) * 100;
+	const scrollProgress = Math.min(100, parseFloat(scrollProgressRaw.toFixed(1)));
 
     const totalText = editor.getValue();
     const charsTotal = totalText.length;

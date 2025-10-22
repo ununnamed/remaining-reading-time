@@ -12,7 +12,7 @@ export function readingTimeText(text: string, plugin: ReadingTime) {
   switch (plugin.settings.format) {
     case ReadingTimeFormat.Simple:
       break;
-    case ReadingTimeFormat.Compact:
+    case ReadingTimeFormat.Default: // 🔁 swapped: now behaves like old Compact
       if (result.time > 3600000) {
         options = { ...options, unitCount: 2 };
       } else {
@@ -25,12 +25,13 @@ export function readingTimeText(text: string, plugin: ReadingTime) {
     case ReadingTimeFormat.Digital:
       options = { ...options, colonNotation: true };
       break;
-    case ReadingTimeFormat.Default:
+    case ReadingTimeFormat.Compact: // 🔁 swapped: now behaves like old Default
     default:
       return plugin.settings.appendText
         ? `${result.minutes} min left`
         : `${result.minutes} min`;
   }
+
   const output = PrettyMilliseconds(result.time, options);
   return plugin.settings.appendText
     ? `${output} ${plugin.settings.appendText}`

@@ -1,9 +1,9 @@
 # remaining-reading-time
-Shows the remaining reading time and reading progress (%) in the Status Bar in real time.
 
 <img width="300" alt="image" src="https://github.com/user-attachments/assets/b62141c2-628a-4c50-95ed-6abdffed0ef2" />
 
-Based on the great Reading Time plugin https://github.com/avr/obsidian-reading-time
+Shows the remaining reading time and reading progress (%) in the Status Bar in real time.
+
 # Differences from the Reading Time Plugin
 
 This plugin is based on great [reading-time plugin](https://github.com/avr/obsidian-reading-time), which focuses primarily on writing and helping users manage note length. While the underlying structure is similar, this version is designed for a different use case — reading.

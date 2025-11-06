@@ -35,8 +35,11 @@ export function readingTimeText(text: string, plugin: ReadingTime) {
       break;
     case ReadingTimeFormat.Default: // 🔁 swapped: now behaves like old Compact
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (timeMs > 3600000) {
 =======
+=======
+>>>>>>> 9ccd2906b666c525e498b8ce5ecf2ba1a6c9dfc5
       if (result.time > 3600000) {
 >>>>>>> 9ccd2906b666c525e498b8ce5ecf2ba1a6c9dfc5
         options = { ...options, unitCount: 2 };
@@ -58,8 +61,11 @@ export function readingTimeText(text: string, plugin: ReadingTime) {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const output = PrettyMilliseconds(timeMs, options);
 =======
+=======
+>>>>>>> 9ccd2906b666c525e498b8ce5ecf2ba1a6c9dfc5
   const output = PrettyMilliseconds(result.time, options);
 >>>>>>> 9ccd2906b666c525e498b8ce5ecf2ba1a6c9dfc5
   return plugin.settings.appendText

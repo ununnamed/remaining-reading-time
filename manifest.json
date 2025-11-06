@@ -1,14 +1,8 @@
 {
 	"id": "remaining-reading-time",
-<<<<<<< HEAD
-	"name": "remaining-reading-time",
-	"description": "Shows the remaining reading time for the current note depending on the cursor position",
-	"version": "1.7",
-=======
 	"name": "Remaining reading time",
 	"description": "Shows the remaining reading time for the current note depending on the cursor position.",
-	"version": "1.6",
->>>>>>> 9ccd2906b666c525e498b8ce5ecf2ba1a6c9dfc5
+	"version": "1.7",
 	"minAppVersion": "0.12.17",
 	"isDesktopOnly": false,
 	"author": "ununnamed",

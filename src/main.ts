@@ -42,63 +42,68 @@ export default class ReadingTime extends Plugin {
       )
     );
 
-    // Add a periodic check of the cursor position
-    let lastCursorPosition: { line: number; ch: number } | null = null;
-this.registerInterval(
-  window.setInterval(() => {
-    const mdView = this.app.workspace.getActiveViewOfType(MarkdownView);
-    if (mdView?.editor) {
-      const cursor = mdView.editor.getCursor();
-      if (
-        !lastCursorPosition ||
-        cursor.line !== lastCursorPosition.line ||
-        cursor.ch !== lastCursorPosition.ch
-      ) {
-        lastCursorPosition = cursor;
-        this.calculateReadingTime();
-      }
-    }
-  }, 500));
+    // Update every half a second - update remaining reading time on scrolling
+    let lastScrollTop: number | null = null;
+    this.registerInterval(
+      window.setInterval(() => {
+        const mdView = this.app.workspace.getActiveViewOfType(MarkdownView);
+        if (!mdView) return;
+
+        const editorEl =
+          mdView.contentEl.querySelector(".cm-scroller") ??
+          mdView.contentEl.querySelector(".markdown-source-view") ??
+          mdView.contentEl;
+
+        if (editorEl) {
+          const scrollTop = editorEl.scrollTop;
+          if (lastScrollTop === null || scrollTop !== lastScrollTop) {
+            lastScrollTop = scrollTop;
+            this.calculateReadingTime();
+          }
+        }
+      }, 500)
+    );
   }
 
   calculateReadingTime = () => {
     const mdView = this.app.workspace.getActiveViewOfType(MarkdownView);
-
-    if (mdView && mdView.editor) {
-      const editor = mdView.editor;
-      const cursor = editor.getCursor();
-      const totalLines = editor.lineCount();
-      let textAboveCursor = "";
-
-      // Calculate text above cursor
-      for (let i = 0; i < cursor.line; i++) {
-        textAboveCursor += editor.getLine(i) + "\n";
-      }
-      textAboveCursor += editor.getLine(cursor.line).slice(0, cursor.ch);
-
-      const totalText = editor.getValue();
-      const progressPercentage = Math.min(
-        100,
-        Math.round((textAboveCursor.length / totalText.length) * 100)
-      );
-
-      // Calculate remaining text
-      let textBelowCursor = "";
-      for (let i = cursor.line; i < totalLines; i++) {
-        textBelowCursor += editor.getLine(i) + "\n";
-      }
-
-      const result = readingTimeText(textBelowCursor, this);
-
-      let statusText = `${result}`;
-      if (this.settings.showProgressPercentage) {
-        statusText += ` (${progressPercentage}%)`;
-      }
-
-      this.statusBar.setText(statusText);
-    } else {
+    if (!mdView || !mdView.editor) {
       this.statusBar.setText("0 min left");
+      return;
     }
+
+    const editor = mdView.editor;
+    const editorEl =
+      mdView.contentEl.querySelector(".cm-scroller") ??
+      mdView.contentEl.querySelector(".markdown-source-view") ??
+      mdView.contentEl;
+
+    if (!editorEl) {
+      this.statusBar.setText("0 min left");
+      return;
+    }
+
+    const scrollTop = editorEl.scrollTop;
+    const scrollHeight = editorEl.scrollHeight;
+    const clientHeight = editorEl.clientHeight;
+
+    const scrollProgressRaw = (scrollTop / (scrollHeight - clientHeight)) * 100;
+	const scrollProgress = Math.min(100, parseFloat(scrollProgressRaw.toFixed(1)));
+
+    const totalText = editor.getValue();
+    const charsTotal = totalText.length;
+    const charsRead = Math.round((charsTotal * (scrollTop / (scrollHeight - clientHeight))));
+    const textBelowScroll = totalText.slice(charsRead);
+
+    const result = readingTimeText(textBelowScroll, this);
+
+    // Just time and percents
+    let statusText = `${result}`;
+    if (this.settings.showProgressPercentage) {
+      statusText += ` (${scrollProgress}%)`;
+    }
+
+    this.statusBar.setText(statusText);
   };
 
   async loadSettings() {
@@ -126,7 +131,7 @@ class ReadingTimeModal extends Modal {
 
   onOpen() {
     const { contentEl, titleEl } = this;
-    titleEl.setText("Reading time of selected text");
+    titleEl.setText("Remaining reading time");
     const stats = readingTimeText(this.editor.getSelection(), this.plugin);
     contentEl.setText(`${stats} (at ${this.plugin.settings.readingSpeed} wpm)`);
   }

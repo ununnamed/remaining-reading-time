@@ -92,8 +92,9 @@ export default class ReadingTime extends Plugin {
 
     const totalText = editor.getValue();
     const charsTotal = totalText.replace(/\s/g, '').length;
-    const charsRead = Math.round((charsTotal * (scrollTop / (scrollHeight - clientHeight))));
-    const textBelowScroll = totalText.slice(charsRead);
+    const progress = scrollTop / (scrollHeight - clientHeight);
+	const estimatedReadPosition = Math.floor(totalText.length * progress);
+	const textBelowScroll = totalText.slice(estimatedReadPosition);
 
     const result = readingTimeText(textBelowScroll, this);
 

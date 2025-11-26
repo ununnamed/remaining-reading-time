@@ -91,7 +91,7 @@ export default class ReadingTime extends Plugin {
 	const scrollProgress = Math.min(100, parseFloat(scrollProgressRaw.toFixed(1)));
 
     const totalText = editor.getValue();
-    const charsTotal = totalText.length;
+    const charsTotal = totalText.replace(/\s/g, '').length;
     const charsRead = Math.round((charsTotal * (scrollTop / (scrollHeight - clientHeight))));
     const textBelowScroll = totalText.slice(charsRead);
 

@@ -48,9 +48,17 @@ export default class ReadingTime extends Plugin {
       window.setInterval(() => {
         const mdView = this.app.workspace.getActiveViewOfType(MarkdownView);
         if (!mdView) return;
-
+	const mode= mdView.getMode();
+	var query = null;
+	if (mode === "preview") {
+		query = ".markdown-preview-view";
+		}
+	else
+	{
+		query = ".cm-scroller";
+		}
         const editorEl =
-          mdView.contentEl.querySelector(".cm-scroller") ??
+          mdView.contentEl.querySelector(query) ??
           mdView.contentEl.querySelector(".markdown-source-view") ??
           mdView.contentEl;
 
@@ -73,8 +81,18 @@ export default class ReadingTime extends Plugin {
     }
 
     const editor = mdView.editor;
+    const mode= mdView.getMode();
+    var query = null;
+    if (mode === "preview") {
+	    query = ".markdown-preview-view";
+    }
+    else
+    {
+	    query = ".cm-scroller";
+    }
+
     const editorEl =
-      mdView.contentEl.querySelector(".cm-scroller") ??
+      mdView.contentEl.querySelector(query) ??
       mdView.contentEl.querySelector(".markdown-source-view") ??
       mdView.contentEl;
 
